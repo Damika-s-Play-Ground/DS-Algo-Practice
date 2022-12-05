@@ -1,7 +1,7 @@
 import sys
 from collections import defaultdict
 
-sys.stdin = open("input.txt")
+sys.stdin = open("Practice for codesqud\input.txt")
 
 
 def input():
@@ -15,16 +15,8 @@ class Graph:
             self.graph[u].append(v)
             self.graph[v].append(u)
 
-    def showBridges(self,start):
-        visited = set()
-        self.DFSUtil(start,visited)
+    def DFS(self,start):
         
-    def DFSUtil(self,v,visited):
-        visited.add(v)
-        print(v, end=" ")
-        for neighbor in self.graph[v]:
-            if neighbor not in visited:
-                self.DFSUtil(self,neighbor)
 
 def main():
     n = int(input())
@@ -34,7 +26,8 @@ def main():
         for j in range(e):
             a, b = map(int,input().split())
             g.insertEdge(a,b)
-        g.showBridges(0)    
+        g.DFS(0)
+        print()    
 
 
 
